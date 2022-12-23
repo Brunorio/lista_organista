@@ -1,0 +1,12 @@
+{
+    "description": "Aplica\u0000\u0000o para cria\u0000\u0000o automatizada de lista de organistas do Congrega\u0000\u0000o Crist\u0000 do Brasil",
+    "authors": [
+        {
+            "name": "brunounesp",
+            "email": "bruno.santos1@unesp.br"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "^8.0"
+    }
+}

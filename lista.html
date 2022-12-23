@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
+    <title>Lista de Organistas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="view.css?v=11.01.Alus">
+    
+</head>
+<body onload="view()">
+    <div id="msform">
+        <span id="aguarde" style="display: none;">Aguarde ...</span>
+        <button onclick="index()" class="add">Criar nova Lista</button>
+        <button onclick="pdf()" class="add" id="salvar">Salvar</button>
+    </div>
+    <div class="conteudo"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="jspdf.min.js"></script>
+<script type="text/javascript" src="html2canvas.js"></script>
+<script src="view.js"></script>
+</html>
