@@ -3,10 +3,13 @@ function proxima(index, lista) {
   else return 0;
 }
 
-function checkUltimasAtribuicao() {
+function checkUltimasAtribuicao(contagemLoop = 0) {
   let tamanho = atribuicao.length;
   let u = tamanho == 0 ? 0 : tamanho - 1;
   if (!u) return true;
+
+  if(contagemLoop > tamanho - 1) return true;
+
   if (atribuicao[u]["nome"] == organistas[o]["nome"]){
     if(organistas.length < 3) return true
     return false;
@@ -44,9 +47,12 @@ function go() {
 
   for (let d in dias) {
     let analisador = true;
+    let contagemLoop = 0;
     while (analisador) {
+      console.log(dias[d], organistas[o], contagemLoop);
+      contagemLoop++;
       if (organistas[o].restricao.length == 0) {
-        if (!checkUltimasAtribuicao()) {
+        if (!checkUltimasAtribuicao(contagemLoop)) {
           o = proxima(o, organistas);
           continue;
         }
@@ -57,14 +63,12 @@ function go() {
         organistas[o]["tocar"]++;
         analisador = false;
       } else if (
-        Date.parse(organistas[o].restricao[0]) == Date.parse(dias[d])
+        organistas[o].restricao.findIndex(restricao => restricao === dias[d]) >= 0
       ) {
-        organistas[o].restricao.shift();
         o = proxima(o, organistas);
-      } else if (Date.parse(organistas[o].restricao[0]) < Date.parse(dias[d]))
-        organistas[o].restricao.shift();
+      } 
       else {
-        if (!checkUltimasAtribuicao()) {
+        if (!checkUltimasAtribuicao(contagemLoop)) {
           o = proxima(o, organistas);
           continue;
         }
@@ -78,7 +82,7 @@ function go() {
     }
 
     organistas.sort((a, b) => {
-      return a.tocar > b.tocar ? 1 : a.tocar < b.tocar ? -1 : 0;
+      return a.tocar - b.tocar;
     });
     o = 0;
   }

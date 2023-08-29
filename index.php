@@ -161,8 +161,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="script.js"></script>
-<script src="calendario.js"></script>
+<script src="calendario.js?v=<?= strtotime('now') ?>"></script>
 <script src="organista.js"></script>
-<script src="restricao.js"></script>
+<script src="restricao.js?v=<?= strtotime('now') ?>"></script>
 <script src="atribuicao.js"></script>
 </html>

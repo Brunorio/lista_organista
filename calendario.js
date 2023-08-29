@@ -61,7 +61,7 @@ function moveDate(para) {
 }
 
 
-let dias = []
+var dias = []
 
 var pad = "00"
 
