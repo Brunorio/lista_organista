@@ -50,7 +50,7 @@ function view() {
             <div>SÁB</div>
         </div>
         <div class="days">
-            ${getDias(2023, separado[t].mes, separado[t].dias)}
+            ${getDias(new Date().getFullYear(), separado[t].mes, separado[t].dias)}
         </div>
     </div></div>`;
     }
